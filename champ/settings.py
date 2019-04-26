@@ -33,7 +33,8 @@ ALLOWED_HOSTS = ['localhost']
 
 INSTALLED_APPS = [
     'workouts',
-    
+    'home',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
