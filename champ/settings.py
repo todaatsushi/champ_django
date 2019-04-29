@@ -120,3 +120,9 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(PROJECT_DIR, 'static'),
 ]
+
+# Media Files
+# PUBLIC URL OF DIRECTORY
+MEDIA_URL = '/media/'
+# DJANGO STORES UPLOADED FILES HERE
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
