@@ -1,4 +1,4 @@
-from workouts.helpers import filterExercises
+from workouts.helpers.helper import filterExercises
 from random import randint
 
 

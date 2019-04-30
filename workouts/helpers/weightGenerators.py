@@ -1,4 +1,4 @@
-from workouts.helper import filterExercises, assignReps, changeTally
+from workouts.helpers.helper import filterExercises, assignReps, changeTally
 
 
 def makeCalisthenicsRoutine(data, target, reps):

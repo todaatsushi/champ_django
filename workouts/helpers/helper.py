@@ -1,5 +1,7 @@
 import pandas as pd
 
+from workouts.models import Exercises
+
 
 def check(list1, list2):
     """
@@ -51,8 +53,10 @@ def exerciseData():
     Get exercise data and format it for python, returning it for use
     """
 
-    # Import data
-    data = pd.read_csv("champ/static/data/exercises_fin.csv")
+    from django_pandas.io import read_frame
+
+    exercises = Exercises.objects.all()
+    data = read_frame(exercises)
 
     # Create columns of lists from cols with multiple answers
     for i in range(1, 9):
