@@ -1,0 +1,27 @@
+{% extends "home/layout.html" %}
+{% load static crispy_forms_tags %}
+
+{% block style %}
+  <link rel="stylesheet" type="text/css" href="{% static 'workouts/css/config.css' %}" />
+{% endblock %}
+
+{% block title %}
+  Workout Configuration
+{% endblock %}
+
+{% block main %}
+  <div class="jumbotron" id="configJumboB">
+    <h1>Design Your <span style="color: #500000">Workout</span></h1>
+  </div>
+
+  <div class="container optionsConfig">
+
+    <form action="/contact/" method="post" id="contact" class="mx-auto">
+      
+      {% csrf_token %}
+      {% crispy form %}
+
+    </form>
+
+  </div>
+{% endblock %}

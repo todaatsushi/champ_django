@@ -137,10 +137,3 @@ jQuery(function($) {
 
   });
 });
-
-// Change hidden field "sentiemnt" value depending on submit button - https://stackoverflow.com/questions/3797285/how-can-i-pass-a-parameter-via-submit-button
-function setSent(val) {
-
-  // Assign "sentiment" field in form to sentiment arg
-  document.getElementById("sentiment").value = val;
-}
