@@ -1,4 +1,5 @@
 {% extends "home/layout.html" %}
+
 {% load static %}
 
 {% block title %}
@@ -10,49 +11,49 @@
 {% endblock %}
 
 {% block main %}
-<!-- JUMBOTRON -->
-<div id="welcome" class="jumbotron">
+  <!-- JUMBOTRON -->
+  <div id="welcome" class="jumbotron">
 
-  <div class="container">
+    <div class="container">
 
-    <h1>Champ Workout Generator</h1>
-    <h4>Get Your Workouts, Without Breaking A Sweat</h4>
-    <hr>
+      <h1>Champ Workout Generator</h1>
+      <h4>Get Your Workouts, Without Breaking A Sweat</h4>
+      <hr>
 
-    <a href="{% url 'champ-config'%}">
-      <button class="btn btn-warning" type="button" name="button">
-        Begin Now <i class="fas fa-running"></i>
-      </button>
-    </a>
+      <a href="{% url 'champ-config'%}">
+        <button class="btn btn-warning" type="button" name="button">
+          Begin Now <i class="fas fa-running"></i>
+        </button>
+      </a>
 
-  </div>
-
-</div>
-
-<!-- MAIN SECTION -->
-<!-- Welcome Text -->
-
-
-<div id="welcomeText" class="container">
-
-  <div class="row">
-
-    <div id="welcomeHead" class="col-md-4">
-      <h3>
-        Welcome to Champ
-      </h3>
-    </div>
-
-    <div id="welcomeBody" class="col-md-8">
-      <p>
-        Champ is a workout generator that gives you free workout ideas for whatever
-        you want to focus on. From a large, diverse database of exercises, it provides
-        you with a solid foundation to then tweak your workouts around your needs, and
-        learn more about fitness.
-      </p>
     </div>
 
   </div>
 
-</div>
+  <!-- MAIN SECTION -->
+  <!-- Welcome Text -->
+
+
+  <div id="welcomeText" class="container">
+
+    <div class="row">
+
+      <div id="welcomeHead" class="col-md-4">
+        <h3>
+          Welcome to Champ
+        </h3>
+      </div>
+
+      <div id="welcomeBody" class="col-md-8">
+        <p>
+          Champ is a workout generator that gives you free workout ideas for whatever
+          you want to focus on. From a large, diverse database of exercises, it provides
+          you with a solid foundation to then tweak your workouts around your needs, and
+          learn more about fitness.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
 {% endblock %}

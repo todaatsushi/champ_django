@@ -1,4 +1,5 @@
 {% extends "home/layout.html" %}
+
 {% load static crispy_forms_tags %}
 
 {% block style %}
@@ -10,29 +11,29 @@
 {% endblock %}
 
 {% block main %}
-<div class="jumbotron" id="thanksJumbo">
-  <h1 class="text-center">Feedback & Enquiries</h1>
-  <h2 class="text-center">Contact Form</h2>
-</div>
+  <div class="jumbotron" id="thanksJumbo">
+    <h1 class="text-center">Feedback & Enquiries</h1>
+    <h2 class="text-center">Contact Form</h2>
+  </div>
 
-<div class="container" id="contactSelect">
+  <div class="container" id="contactSelect">
 
-  <form action="{% url 'champ-contact' %}" method="post" id="contact" class="mx-auto">
-    
-    {% csrf_token %}
-    {{ form|crispy }}
+    <form action="{% url 'champ-contact' %}" method="post" id="contact" class="mx-auto">
+      
+      {% csrf_token %}
+      {{ form|crispy }}
 
-    <div class="buttons">
-      <button type="submit" class="btn btn-sm btn-success mr-2">
-          <i class="far fa-paper-plane mr-2"></i> Send
-        </button>
-    
-        <button type="reset" class="btn btn-sm btn-outline-secondary">
-          Reset Form
-        </button>
-    </div>
+      <div class="buttons">
+        <button type="submit" class="btn btn-sm btn-success mr-2">
+            <i class="far fa-paper-plane mr-2"></i> Send
+          </button>
+      
+          <button type="reset" class="btn btn-sm btn-outline-secondary">
+            Reset Form
+          </button>
+      </div>
 
-  </form>
+    </form>
 
-</div>
+  </div>
 {% endblock %}
