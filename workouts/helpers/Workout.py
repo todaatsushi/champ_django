@@ -35,6 +35,9 @@ class Workout(object):
         self.routine = {}
         self.gear = gear
 
+    def __str__(self):
+        return f'{target.capitalize()} Workout'
+
     def getData(self):
         return self.data
 
