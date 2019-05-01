@@ -3,8 +3,8 @@ from django import forms
 
 class ContactForm(forms.Form):
     SENTIMENT_OPTIONS = (
-        ('Positive', 'Positive'),
-        ('Negative', 'Negative')
+        ('Positive', 'Positive Overall'),
+        ('Negative', 'Negative Overall')
     )
 
     name = forms.CharField(required=True)
