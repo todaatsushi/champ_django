@@ -18,7 +18,7 @@ def makeCalisthenicsRoutine(data, target, reps):
                            [["Calisthenics", "Plyo"], [target.capitalize()]])
 
     # Get exercises
-    exercises = pool.sample(5).Exercise.tolist()
+    exercises = pool.sample(5).exercise.tolist()
 
     for e in exercises:
 
