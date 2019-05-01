@@ -17,7 +17,7 @@ def makeHiitRoutine(data, reps):
     data = filterExercises(data, ["exercise_type"], [["Plyo"]])
 
     # Take sample of 8 exercises
-    hiitSample = data.sample(10).Exercise.tolist()
+    hiitSample = data.sample(10).exercise.tolist()
 
     # Insert rests
     hiitSample.insert(5, "Rest")
@@ -49,11 +49,11 @@ def makeRegularRoutine(data, reps, gearLevel):
     # gear
     if gearLevel == "gymless":
 
-        cardioSample = data.Exercise.sample(4, replace=True).tolist()
+        cardioSample = data.exercise.sample(4, replace=True).tolist()
 
     else:
 
-        cardioSample = data.Exercise.sample(4).tolist()
+        cardioSample = data.exercise.sample(4).tolist()
 
     # Loop through and assign rep length
     for exercise in cardioSample:
@@ -90,7 +90,7 @@ def makeMixedRoutine(data, reps):
     for cardioType in tally.keys():
 
         # Pool together possible exercises
-        pool = bothData[cardioType].Exercise.tolist()
+        pool = bothData[cardioType].exercise.tolist()
 
         # While tally is not 0 (not enough exercises)
         while tally[cardioType] > 0:

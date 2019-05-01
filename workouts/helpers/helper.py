@@ -37,7 +37,7 @@ def isinList(data, col, filterAll):
 
         # Ensure proper usage (needs a list to check properly)
         if isinstance(entry, list) is False:
-            entry = entry.tolist()
+            entry = [entry]
 
         # Do elements in filterAll appear in entry
         print('ISIN', entry, filterAll)

@@ -101,7 +101,7 @@ class Workout(object):
         warmup = {}
 
         for i in range(3):
-            warmup[warmupExercises[i]] = warmupRR
+            warmup[warmupExercises[i][0]] = warmupRR
 
         self.setWarmup(warmup)
 

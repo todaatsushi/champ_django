@@ -23,12 +23,12 @@ def makeCalisthenicsRoutine(data, target, reps):
     for e in exercises:
 
         # Get exercise row in pool
-        en = pool[pool.Exercise.isin([e])]
+        en = pool[pool.exercise.isin([e])]
 
         # Conditions for assigning reps
-        valid = ["Plyo" in en.ExerciseType.iloc[0],
-                 "Cardio" in en.ExerciseType.iloc[0],
-                 "Hold" in en.MovementType.iloc[0]]
+        valid = ["Plyo" in en.exercise_type.iloc[0],
+                 "Cardio" in en.exercise_type.iloc[0],
+                 "Hold" in en.movement_type.iloc[0]]
 
         # Check conditions
         if any(valid):
@@ -61,16 +61,16 @@ def makeFullBodyRoutine(data, reps):
     pool = fullData.append(mainData, ignore_index=True)
 
     # Sample the exercises
-    exercises = pool.sample(6).Exercise.tolist()
+    exercises = pool.sample(6).exercise.tolist()
 
     # Loop through samples
     for e in exercises:
 
         # Get exercise row in pool
-        en = pool[pool.Exercise.isin([e])]
+        en = pool[pool.exercise.isin([e])]
 
         # If weight in exercise, assign reps, else set time
-        if "Weight" in en.ExerciseType.tolist()[0]:
+        if "Weight" in en.exercise_type.tolist()[0]:
 
             routine[e] = reps[0]
 
@@ -118,19 +118,19 @@ def makeWeightRoutine(data, target, reps, parts):
 
         # Attribute exercises to tallies
         majorTally = changeTally(majorTally,
-                                 [exercise.MajorMuscle[0]])
+                                 [exercise.major_muscles[0]])
 
         minorTally = changeTally(minorTally,
-                                 [exercise.MinorMuscle[0]])
+                                 [exercise.minor_muscles[0]])
 
         # Add main exercise to the routine
-        routine[exercise.Exercise] = reps[0]
+        routine[exercise.exercise] = reps[0]
 
     # Get major exercises and chalk off as many minor counts as well
     for part in parts:
 
         # Get exercise entry from data
-        exerciseEntry = filterExercises(data, ["major_muscle"],
+        exerciseEntry = filterExercises(data, ["major_muscles"],
                                         [[part]]).sample(1)
 
         # Assign appropriate reps to each exercise
@@ -139,9 +139,9 @@ def makeWeightRoutine(data, target, reps, parts):
 
         # Update major & minor tallies
         majorTally = changeTally(majorTally,
-                                 exerciseEntry.MajorMuscle.iloc[0])
+                                 exerciseEntry.major_muscles.iloc[0])
 
         minorTally = changeTally(minorTally,
-                                 exerciseEntry.MinorMuscle.iloc[0])
+                                 exerciseEntry.minor_muscles.iloc[0])
 
     return routine
