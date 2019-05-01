@@ -24,12 +24,12 @@ def makeEntry(row):
                 muscle_group=row['MuscleGroup'],
                 major_muscles=row['MajorMuscle'],
                 minor_muscles=row['MinorMuscle'],
-                beginner='Yes' if row['Beginner'] == 1 else 'No',
-                intermediate='Yes' if row['Intermediate'] == 1 else 'No',
-                advanced='Yes' if row['Advanced'] == 1 else 'No',
-                sl='Yes' if row['SL'] == 1 else 'No',
-                gvt='Yes' if row['GVT'] == 1 else 'No',
-                main_lift='Yes' if row['MainLift'] == 1 else 'No',
+                beginner='Yes' if int(row['Beginner']) == 1 else 'No',
+                intermediate='Yes' if int(row['Intermediate']) == 1 else 'No',
+                advanced='Yes' if int(row['Advanced']) == 1 else 'No',
+                sl='Yes' if row['SL'] == "1" else 'No',
+                gvt='Yes' if row['GVT'] == '1' else 'No',
+                main_lift=row['MainLift'],
                 owner=me,
             )
 
