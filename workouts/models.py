@@ -3,6 +3,8 @@ from django.utils import timezone
 
 
 class Exercises(models.Model):
+
+    # Info Fields
     created = models.DateTimeField(default=timezone.now)
     exercise = models.CharField(max_length=100)
     gym_level = models.CharField(max_length=100)
@@ -13,6 +15,8 @@ class Exercises(models.Model):
     muscle_group = models.CharField(max_length=100)
     major_muscles = models.CharField(max_length=100)
     minor_muscles = models.CharField(max_length=100)
+
+    # Bool Fields
     beginner = models.CharField(max_length=10)
     intermediate = models.CharField(max_length=10)
     advanced = models.CharField(max_length=10)
