@@ -63,7 +63,8 @@ def config(request):
                         ) for df in dfs]
 
         context = {
-            'tables': df_html,
+            'warmup': df_html[0],
+            'routine': df_html[1],
             'spec1': spec1,
             'spec2': spec2,
             'form': form,

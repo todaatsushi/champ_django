@@ -2,10 +2,6 @@ from django.db import models
 from django.utils import timezone
 
 
-# CHANGE BOOL FIELDS TO CHARFIELDS (KEEP HOW IT WAS BEFORE)
-#     OR
-# REFACTOR ALL CODES TO REFLECT DJANGO MODEL FIELDS - BOOLEANS/INTS ETC.
-
 class Exercises(models.Model):
     created = models.DateTimeField(default=timezone.now)
     exercise = models.CharField(max_length=100)
