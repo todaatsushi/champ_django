@@ -1,4 +1,5 @@
 {% extends "home/layout.html" %}
+{% load render_table from django_tables2 %}
 {% load static %}
 
 {% block style %}
@@ -23,14 +24,13 @@
 
     <h2 class="text-center">Warmup</h2>
 
-    {{tables[0] | safe}}
-
+    {{ warmup|safe }}
   </div>
   <div class="routine">
 
     <h2 class="text-center">Main Routine</h2>
 
-    {{tables[1]| safe}}
+    {{ routine|safe }}
 
   </div>
   <hr>
