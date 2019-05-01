@@ -17,12 +17,12 @@ class Exercises(models.Model):
     muscle_group = models.CharField(max_length=100)
     major_muscles = models.CharField(max_length=100)
     minor_muscles = models.CharField(max_length=100)
-    beginner = models.CharField(max_length=100)
-    intermediate = models.CharField(max_length=100)
-    advanced = models.CharField(max_length=100)
-    sl = models.CharField(max_length=100)
-    gvt = models.CharField(max_length=100)
-    main_lift = models.CharField(max_length=100)
+    beginner = models.CharField(max_length=10)
+    intermediate = models.CharField(max_length=10)
+    advanced = models.CharField(max_length=10)
+    sl = models.CharField(max_length=10)
+    gvt = models.CharField(max_length=10)
+    main_lift = models.CharField(max_length=10)
 
     owner = models.ForeignKey('auth.User', related_name='exercises',
                               on_delete=models.CASCADE)
