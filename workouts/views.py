@@ -16,6 +16,7 @@ def config(request):
         # Workout target
         goal = request.POST.get('goal')
 
+        # Cardio workouts have different settings
         if goal == 'cardio':
             groupOrCardio = request.POST.get('cardio')
             # Jumbotron title
@@ -40,6 +41,7 @@ def config(request):
             else:
                 spec1 = "Muscle Conditioning"
 
+        # Limit by equipment available
         gear = request.POST.get('gear')
 
         # Configure workout object
