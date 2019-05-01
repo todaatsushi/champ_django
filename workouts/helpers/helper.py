@@ -7,7 +7,7 @@ def check(list1, list2):
     """
     Checks if any value in list1 exists in list2
     """
-    print("Check", list1, list2)
+    # print("Check", list1, list2)
     for i in list1:
 
         for n in list2:
@@ -27,7 +27,7 @@ def isinList(data, col, filterAll):
 
     # Initialise return list of bools
     boolList = []
-    print('Start ISIN', col, filterAll)
+    # print('Start ISIN', col, filterAll)
 
     # Iterate through all lists in col,
     for i in range(data[col].size):
@@ -40,7 +40,7 @@ def isinList(data, col, filterAll):
             entry = [entry]
 
         # Do elements in filterAll appear in entry
-        print('ISIN', entry, filterAll)
+        # print('ISIN', entry, filterAll)
         inFilterAll = check(entry, filterAll)
 
         # Indicate for that index if we want it
@@ -61,7 +61,7 @@ def exerciseData():
     data = read_frame(exercises)
 
     # Create columns of lists from cols with multiple answers
-    for i in range(1, 9):
+    for i in range(3, 11):
         data.iloc[:, i] = data.iloc[:, i].apply(lambda x: str(x))
         data.iloc[:, i] = data.iloc[:, i].apply(lambda x: x.split(","))
 
@@ -72,7 +72,7 @@ def filterExercises(data, cols, filterList):
     """
     Applies isinList to data across all cols with index aligned filters.
     data must be a dataframe, cols a list of strings with column names &
-    filterList a list of lists with all row options to extractself.
+    filterList a list of lists with all row options to extract.
 
     Col names and the desired filter options must be index aligned!
     Returns data, filtered and index reset.
@@ -80,7 +80,7 @@ def filterExercises(data, cols, filterList):
 
     # Loop through the columns and filter throught with associated indicies
     for n in range(len(cols)):
-        print(f"FE, {cols[n]}, {filterList[n]}")
+        # print(f"FE, {cols[n]}, {filterList[n]}")
 
         # Filter down
         data = data[isinList(data, cols[n], filterList[n]
