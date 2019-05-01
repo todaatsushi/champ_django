@@ -16,7 +16,7 @@
 
   <div class="container optionsConfig">
 
-    <form action="/contact/" method="post" id="contact" class="mx-auto">
+    <form action="{% url 'champ-config' %}" method="post" id="config" class="mx-auto">
       
       {% csrf_token %}
       {% crispy form %}

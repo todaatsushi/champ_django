@@ -14,7 +14,7 @@ def makeHiitRoutine(data, reps):
     routine = {}
 
     # Filter data for hiit exercises
-    data = filterExercises(data, ["ExerciseType"], [["Plyo"]])
+    data = filterExercises(data, ["exercise_type"], [["Plyo"]])
 
     # Take sample of 8 exercises
     hiitSample = data.sample(10).Exercise.tolist()
@@ -43,7 +43,7 @@ def makeRegularRoutine(data, reps, gearLevel):
     routine = {}
 
     # Filter data for regular exercises
-    data = filterExercises(data, ["ExerciseType"], [["Cardio"]])
+    data = filterExercises(data, ["exercise_type"], [["Cardio"]])
 
     # Due to lack of options, sample with replacement depending on avaliable
     # gear
@@ -82,8 +82,8 @@ def makeMixedRoutine(data, reps):
 
     # Get exercises for both cardio types
     bothData = {
-        "Plyo": filterExercises(data, ["ExerciseType"], [["Plyo"]]),
-        "Cardio": filterExercises(data, ["ExerciseType"], [["Cardio"]])
+        "Plyo": filterExercises(data, ["exercise_type"], [["Plyo"]]),
+        "Cardio": filterExercises(data, ["exercise_type"], [["Cardio"]])
         }
 
     # Loop through both types

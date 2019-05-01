@@ -50,10 +50,10 @@
 
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a href="/contact"><button class="btn btn-outline-primary" type="button" name="button">Feedback <i class="far fa-comment-alt"></i></button></a>
+          <a href="{% url 'champ-contact' %}"><button class="btn btn-outline-primary" type="button" name="button">Feedback <i class="far fa-comment-alt"></i></button></a>
         </li>
         <li class="nav-item">
-          <a href="/config?exp=all"><button class="btn btn-warning" type="button" name="button">Get Started <i class="fas fa-running"></i></button></a>
+          <a href="{% url 'champ-config' %}"><button class="btn btn-warning" type="button" name="button">Get Started <i class="fas fa-running"></i></button></a>
         </li>
       </ul>
 
@@ -78,7 +78,7 @@
         <i class="fab fa-github-square"></i>
       </a>
 
-      <a href="/contact">
+      <a href="{% url 'champ-contact' %}">
         <i class="fas fa-envelope"></i>
       </a>
     </div>

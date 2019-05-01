@@ -14,7 +14,7 @@ def makeCalisthenicsRoutine(data, target, reps):
 
     # Get 5 calisthenics workouts
     # Pool together all exercises & sample
-    pool = filterExercises(data, ["ExerciseType", "MuscleGroup"],
+    pool = filterExercises(data, ["exercise_type", "muscle_group"],
                            [["Calisthenics", "Plyo"], [target.capitalize()]])
 
     # Get exercises
@@ -55,8 +55,8 @@ def makeFullBodyRoutine(data, reps):
     routine = {}
 
     # Pool together all relevant exercises & sample
-    fullData = filterExercises(data, ["MuscleGroup"], [["Full"]])
-    mainData = filterExercises(data, ["MainLift"], [["Yes"]])
+    fullData = filterExercises(data, ["muscle_group"], [["Full"]])
+    mainData = filterExercises(data, ["main_lift"], [["Yes"]])
 
     pool = fullData.append(mainData, ignore_index=True)
 
@@ -93,7 +93,7 @@ def makeWeightRoutine(data, target, reps, parts):
     routine = {}
 
     # Get exercises for target group & remove warmup exercises
-    data = filterExercises(data, ["MuscleGroup"], [[target.capitalize()]])
+    data = filterExercises(data, ["muscle_group"], [[target.capitalize()]])
 
     # Depending on target, initialise different tally totals
     if target in ["chest", "arms", "core"]:
@@ -111,7 +111,7 @@ def makeWeightRoutine(data, target, reps, parts):
     # Ensure inclusion of main compound lift
 
     # Get main exercise
-    main = filterExercises(data, ["MainLift"], [["Yes"]])
+    main = filterExercises(data, ["main_lift"], [["Yes"]])
 
     # Attribute main to tallies
     for index, exercise in main.iterrows():
@@ -130,7 +130,7 @@ def makeWeightRoutine(data, target, reps, parts):
     for part in parts:
 
         # Get exercise entry from data
-        exerciseEntry = filterExercises(data, ["MajorMuscle"],
+        exerciseEntry = filterExercises(data, ["major_muscle"],
                                         [[part]]).sample(1)
 
         # Assign appropriate reps to each exercise

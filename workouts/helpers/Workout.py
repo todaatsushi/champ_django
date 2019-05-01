@@ -25,7 +25,7 @@ class Workout(object):
         repRanges: list - of rep ranges in ascending order.
         gear: string - Level of gym equipment available.
         """
-        super(Workout, self).__init__()
+        super().__init__()
 
         self.data = data
         self.target = target
@@ -82,19 +82,21 @@ class Workout(object):
         """
         genData = self.getData()
 
-        warmupData = filterExercises(genData, ["ExerciseType"],
+        # Get muscle group exercises
+        warmupData = filterExercises(genData, ["exercise_type"],
                                      [["Calisthenics", "Plyo"]])
 
         # Possible rep ranges for warmups
         warmupRR = ["5 seconds", "10 seconds", "15 seconds"]
 
+        # Full body exercises
         fbWarmupExercise = filterExercises(genData,
-                                           ["MuscleGroup", "MainLift"],
+                                           ["muscle_group", "main_lift"],
                                            [["Full"], ["No"]]
-                                           ).Exercise.sample(1).tolist()
+                                           ).exercise.sample(1).tolist()
 
         warmupExercises = fbWarmupExercise
-        warmupExercises.extend(warmupData.Exercise.sample(2).tolist())
+        warmupExercises.extend(warmupData.exercise.sample(2).tolist())
 
         warmup = {}
 
@@ -261,10 +263,10 @@ def returnWorkout(data, goal, groupOrCardio, gear):
     # Initially filter down by gear
 
     if gear == "gymless":
-        data = filterExercises(data, ["GymLevel"], [["Gymless"]])
+        data = filterExercises(data, ["gym_level"], [["Gymless"]])
 
     elif gear == "basic":
-        data = filterExercises(data, ["GymLevel"],
+        data = filterExercises(data, ["gym_level"],
                                [["None", "Gymless", "Basic"]])
 
     # Get repRanges for the specified goal
@@ -281,19 +283,19 @@ def returnWorkout(data, goal, groupOrCardio, gear):
 
         # Filter for cardio exercises only
 
-        data = filterExercises(data, ["ExerciseType"], [["Cardio", "Plyo"]])
+        data = filterExercises(data, ["exercise_type"], [["Cardio", "Plyo"]])
 
     else:
 
         # Get full body exercise for warmup
-        fullBody = filterExercises(data, ["MuscleGroup"],
+        fullBody = filterExercises(data, ["muscle_group"],
                                    [["Full"]])
         # Filter data for body part
-        data = filterExercises(data, ["MuscleGroup"],
+        data = filterExercises(data, ["muscle_group"],
                                [[groupOrCardio.capitalize()]])
 
         # Drop deadlift
-        fullBody.drop(fullBody[fullBody.MainLift == "Yes"].index)
+        fullBody.drop(fullBody[fullBody.main_lift == "Yes"].index)
 
         # Append together
         data = data.append(fullBody, ignore_index=True)

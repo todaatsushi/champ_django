@@ -17,7 +17,7 @@
 
 <div class="container" id="contactSelect">
 
-  <form action="/contact/" method="post" id="contact" class="mx-auto">
+  <form action="{% url 'champ-contact' %}" method="post" id="contact" class="mx-auto">
     
     {% csrf_token %}
     {{ form|crispy }}

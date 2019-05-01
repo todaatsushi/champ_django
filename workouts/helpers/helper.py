@@ -7,6 +7,7 @@ def check(list1, list2):
     """
     Checks if any value in list1 exists in list2
     """
+    print("Check", list1, list2)
     for i in list1:
 
         for n in list2:
@@ -14,7 +15,6 @@ def check(list1, list2):
             if i == n:
 
                 return True
-
     return False
 
 
@@ -27,18 +27,20 @@ def isinList(data, col, filterAll):
 
     # Initialise return list of bools
     boolList = []
+    print('Start ISIN', col, filterAll)
 
     # Iterate through all lists in col,
     for i in range(data[col].size):
 
         # Temporary value of list in Series
-        entry = data[col][i]
+        entry = data[col].iloc[i]
 
         # Ensure proper usage (needs a list to check properly)
         if isinstance(entry, list) is False:
-            entry = [entry]
+            entry = entry.tolist()
 
         # Do elements in filterAll appear in entry
+        print('ISIN', entry, filterAll)
         inFilterAll = check(entry, filterAll)
 
         # Indicate for that index if we want it
@@ -62,6 +64,7 @@ def exerciseData():
     for i in range(1, 9):
         data.iloc[:, i] = data.iloc[:, i].apply(lambda x: str(x))
         data.iloc[:, i] = data.iloc[:, i].apply(lambda x: x.split(","))
+
     return data
 
 
@@ -77,6 +80,7 @@ def filterExercises(data, cols, filterList):
 
     # Loop through the columns and filter throught with associated indicies
     for n in range(len(cols)):
+        print(f"FE, {cols[n]}, {filterList[n]}")
 
         # Filter down
         data = data[isinList(data, cols[n], filterList[n]
