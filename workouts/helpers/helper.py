@@ -116,41 +116,41 @@ def assignReps(exercise, allReps):
     """
 
     # Extract data from exercise
-    name = exercise.iloc[0, 0]
-    exType = exercise.iloc[0, 3][0]
-    mvmt = exercise.iloc[0, 4][0]
-    cOrI = exercise.iloc[0, 5][0]
-    sl = exercise.iloc[0, 12]
+    name = exercise.exercise.iloc[0][0]
+    exType = exercise.exercise_type.iloc[0][0]
+    mvmt = exercise.movement_type.iloc[0][0]
+    cOrI = exercise.compound_isolation.iloc[0][0]
+    sl = exercise.sl.iloc[0][0]
+
+    print(f'Args: {allReps}')
+    print(f"AssignReps: {name}, {exType}, {mvmt}, {cOrI}, {sl}", '\n')
 
     # Check if hold
     if mvmt == "Hold":
         ret = [name, "30 seconds"]
-
         # Return object
         return ret
 
     # Check allRange length
     if len(allReps) == 3:
-
         # Check conditions for higher reps
         if exType == "Calisthenics" or cOrI == "Isolation":
-
+            print("Option 1")
             ret = [name, allReps[2]]
-
-        elif cOrI == "Compound" and sl == 1:
-
+        elif cOrI == "Compound" and sl == 'Yes':
+            print("Option 2")
             ret = [name, allReps[0]]
-
         elif cOrI == "Compound":
-
+            print("Option 3")
             ret = [name, allReps[1]]
-
         else:
-
+            print('Options 4')
             raise ValueError("Couldn't sort exercise")
 
     else:
 
         ret = [name, allReps[0]]
+
+    print()
 
     return ret

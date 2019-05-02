@@ -17,7 +17,7 @@ class Workout(object):
 
     def __init__(self, data, target, allParts, repRanges, gear):
         """
-        Input data: pandas DataFrameself.
+        Input data: pandas DataFrame.
         target - string: if a cardio workout - has to be workout type. Else,
         a target muscle group - has to be in data.
         allParts: list of strings - containing all sub muscle groups. If
@@ -36,7 +36,7 @@ class Workout(object):
         self.gear = gear
 
     def __str__(self):
-        return f'{target.capitalize()} Workout'
+        return f'{self.target.capitalize()} Workout'
 
     def getData(self):
         return self.data
@@ -104,7 +104,7 @@ class Workout(object):
         warmup = {}
 
         for i in range(3):
-            warmup[warmupExercises[i][0]] = warmupRR
+            warmup[warmupExercises[i]] = warmupRR
 
         self.setWarmup(warmup)
 

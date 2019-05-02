@@ -78,7 +78,7 @@ def makeFullBodyRoutine(data, reps):
 
             routine[e] = "15 seconds"
 
-        return routine
+    return routine
 
 
 def makeWeightRoutine(data, target, reps, parts):
@@ -97,11 +97,8 @@ def makeWeightRoutine(data, target, reps, parts):
 
     # Depending on target, initialise different tally totals
     if target in ["chest", "arms", "core"]:
-
         tot = 2
-
     else:
-
         tot = 1
 
     # Initialise tallies for parts in target group
