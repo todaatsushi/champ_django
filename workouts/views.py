@@ -72,8 +72,6 @@ def config(request):
             'form': form,
         }
 
-        print(context)
-
         return render(request, 'workouts/workout.html',
                       context)
 

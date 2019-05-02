@@ -1,9 +1,9 @@
 {% extends "home/layout.html" %}
-{% load render_table from django_tables2 %}
+
 {% load static %}
 
 {% block style %}
-  <link rel="stylesheet" type="text/css" href="{% static 'workouts/css/workout.css' % }" />
+  <link rel="stylesheet" type="text/css" href="{% static 'workouts/css/workout.css' %}" />
 {% endblock %}
 
 {% block title %}
@@ -14,12 +14,12 @@
 <div id="return" class="jumbotron">
 
   <div class="container">
-    <h1>{{spec1}} Workout: <small style="color: #500000">{{spec2}}</small></h1>
+    <h1>{{spec1}} Workout: <small style="color: #216869">{{spec2}}</small></h1>
   </div>
 
 </div>
 
-<div class = "container">
+<div class="container">
   <div class="routine">
 
     <h2 class="text-center">Warmup</h2>
