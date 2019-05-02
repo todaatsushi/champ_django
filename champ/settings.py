@@ -16,6 +16,7 @@ INSTALLED_APPS = [
     'home',
 
     'crispy_forms',
+    'rest_framework',
 
     'django.contrib.admin',
     'django.contrib.auth',
