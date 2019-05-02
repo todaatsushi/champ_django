@@ -4,5 +4,5 @@ import workouts.views as v
 
 
 urlpatterns = [
-    path('config/', v.config, name='champ-config')
+    path('config/', v.config, name='champ-config'),
 ]

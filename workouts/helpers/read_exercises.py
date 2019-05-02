@@ -7,14 +7,14 @@ import os
 
 from django.contrib.auth.models import User
 
-from workouts.models import Exercises
+from workouts.models import Exercise
 
 
 me = User.objects.get(id=1)
 
 
 def makeEntry(row):
-    return Exercises(
+    return Exercise(
                 exercise=row['Exercise'],
                 gym_level=row['GymLevel'],
                 equipment=row['Equipment'],

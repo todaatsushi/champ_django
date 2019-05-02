@@ -5,7 +5,7 @@ When run manually in python shell, they work fine.
 
 from django.test import TestCase
 
-from workouts.models import Exercises
+from workouts.models import Exercise
 from workouts.helpers.Workout import returnWorkout, Workout
 import workouts.helpers.helper as h
 

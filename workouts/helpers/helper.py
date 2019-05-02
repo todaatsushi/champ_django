@@ -1,6 +1,6 @@
 import pandas as pd
 
-from workouts.models import Exercises
+from workouts.models import Exercise
 
 
 def check(list1, list2):
@@ -50,7 +50,7 @@ def exerciseData():
 
     from django_pandas.io import read_frame
 
-    exercises = Exercises.objects.all()
+    exercises = Exercise.objects.all()
     data = read_frame(exercises)
 
     # Create columns of lists from cols with multiple answers

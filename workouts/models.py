@@ -2,7 +2,7 @@ from django.db import models
 from django.utils import timezone
 
 
-class Exercises(models.Model):
+class Exercise(models.Model):
 
     # Info Fields
     created = models.DateTimeField(default=timezone.now)
@@ -16,7 +16,7 @@ class Exercises(models.Model):
     major_muscles = models.CharField(max_length=100)
     minor_muscles = models.CharField(max_length=100)
 
-    # Bool Fields
+    # Bool Fields ('Yes', 'No')
     beginner = models.CharField(max_length=10)
     intermediate = models.CharField(max_length=10)
     advanced = models.CharField(max_length=10)
