@@ -9,11 +9,8 @@ def check(list1, list2):
     """
     # print("Check", list1, list2)
     for i in list1:
-
         for n in list2:
-
             if i == n:
-
                 return True
     return False
 
@@ -27,11 +24,9 @@ def isinList(data, col, filterAll):
 
     # Initialise return list of bools
     boolList = []
-    # print('Start ISIN', col, filterAll)
 
     # Iterate through all lists in col,
     for i in range(data[col].size):
-
         # Temporary value of list in Series
         entry = data[col].iloc[i]
 
@@ -40,9 +35,7 @@ def isinList(data, col, filterAll):
             entry = [entry]
 
         # Do elements in filterAll appear in entry
-        # print('ISIN', entry, filterAll)
         inFilterAll = check(entry, filterAll)
-
         # Indicate for that index if we want it
         boolList.append(inFilterAll)
 
@@ -80,8 +73,6 @@ def filterExercises(data, cols, filterList):
 
     # Loop through the columns and filter throught with associated indicies
     for n in range(len(cols)):
-        # print(f"FE, {cols[n]}, {filterList[n]}")
-
         # Filter down
         data = data[isinList(data, cols[n], filterList[n]
                              )].reset_index(drop=True)
@@ -96,9 +87,7 @@ def changeTally(tallyDict, keysList):
     elements in keyList and for those that exist in the dict,
     """
     for i in keysList:
-
         if i in list(tallyDict.keys()):
-
             tallyDict[i] -= 1
 
     return tallyDict
@@ -122,9 +111,6 @@ def assignReps(exercise, allReps):
     cOrI = exercise.compound_isolation.iloc[0][0]
     sl = exercise.sl.iloc[0][0]
 
-    print(f'Args: {allReps}')
-    print(f"AssignReps: {name}, {exType}, {mvmt}, {cOrI}, {sl}", '\n')
-
     # Check if hold
     if mvmt == "Hold":
         ret = [name, "30 seconds"]
@@ -135,22 +121,14 @@ def assignReps(exercise, allReps):
     if len(allReps) == 3:
         # Check conditions for higher reps
         if exType == "Calisthenics" or cOrI == "Isolation":
-            print("Option 1")
             ret = [name, allReps[2]]
         elif cOrI == "Compound" and sl == 'Yes':
-            print("Option 2")
             ret = [name, allReps[0]]
         elif cOrI == "Compound":
-            print("Option 3")
             ret = [name, allReps[1]]
         else:
-            print('Options 4')
             raise ValueError("Couldn't sort exercise")
-
     else:
-
         ret = [name, allReps[0]]
-
-    print()
 
     return ret
