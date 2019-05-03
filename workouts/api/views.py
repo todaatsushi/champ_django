@@ -1,7 +1,7 @@
 from django.http import Http404
 from django.contrib.auth.models import User
 
-from rest_framework import generics, permissions
+from rest_framework import generics, permissions, viewsets
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
@@ -21,40 +21,24 @@ def champ_api_root(request, format=None):
     })
 
 
-class ExerciseList(generics.ListCreateAPIView):
+class ExerciseViewSet(viewsets.ModelViewSet):
     """
-    List all exercises / create new exercise entry.
+    List, create, retrieve, update & destroy actions on the Exercise model.
     """
     queryset = Exercise.objects.all()
     serializer_class = ExerciseSerializer
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,
-                          IsOwnerOrReadOnly,)
+    permission_classes = (
+        permissions.IsAuthenticatedOrReadOnly,
+        IsOwnerOrReadOnly
+    )
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
 
 
-class ExerciseDetail(generics.RetrieveUpdateDestroyAPIView):
+class UserViewSet(viewsets.ReadOnlyModelViewSet):
     """
-    Retrieve, update or delete an exercise entry.
-    """
-    queryset = Exercise.objects.all()
-    serializer_class = ExerciseSerializer
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,
-                          IsOwnerOrReadOnly,)
-
-
-class UserList(generics.ListAPIView):
-    """
-    List all User entries.
-    """
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
-
-
-class UserDetail(generics.RetrieveAPIView):
-    """
-    Show details on one specific user.
+    List & detail on the User model.
     """
     queryset = User.objects.all()
     serializer_class = UserSerializer

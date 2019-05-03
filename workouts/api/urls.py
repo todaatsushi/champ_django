@@ -1,29 +1,16 @@
 from django.urls import path, include
 
-from rest_framework.urlpatterns import format_suffix_patterns
+from rest_framework.routers import DefaultRouter
 
-import workouts.api.views as av
+from workouts.api import views as v
+
+# Register viewsets with the Router
+router = DefaultRouter()
+router.register(r'exercises', v.ExerciseViewSet)
+router.register(r'users', v.UserViewSet)
 
 
 urlpatterns = [
      # Root
-     path('', av.champ_api_root, name='champ-api-root'),
-
-     # Exercises
-     path('exercises/', av.ExerciseList.as_view(),
-          name='exercise-list'),
-     path('exercises/<int:pk>/', av.ExerciseDetail.as_view(),
-          name='exercise-detail'),
-
-     # Users
-     path('users/', av.UserList.as_view(),
-          name='user-list'),
-     path('users/<int:pk>/', av.UserDetail.as_view(),
-          name='user-detail'),
-
-     # Login
-     path('auth/', include('rest_framework.urls'),
-          name='api-auth'),
+     path('', include('router.urls'))
 ]
-
-urlpatterns = format_suffix_patterns(urlpatterns)
