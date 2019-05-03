@@ -6,18 +6,24 @@ import workouts.api.views as av
 
 
 urlpatterns = [
-    path('exercises/', av.ExerciseList.as_view(),
-         name='champ-api-exercise_list'),
-    path('exercises/<int:pk>/', av.ExerciseDetail.as_view(),
-         name='champ-api-exercise_detail'),
+     # Root
+     path('', av.champ_api_root, name='champ-api-root'),
 
-    path('users/', av.UserList.as_view(),
-         name='champ-api-user_list'),
-    path('users/<int:pk>/', av.UserDetail.as_view(),
-         name='champ-api-user_detail'),
+     # Exercises
+     path('exercises/', av.ExerciseList.as_view(),
+          name='exercise-list'),
+     path('exercises/<int:pk>/', av.ExerciseDetail.as_view(),
+          name='exercise-detail'),
 
-    path('auth/', include('rest_framework.urls'),
-         name='champ-api-auth'),
+     # Users
+     path('users/', av.UserList.as_view(),
+          name='user-list'),
+     path('users/<int:pk>/', av.UserDetail.as_view(),
+          name='user-detail'),
+
+     # Login
+     path('auth/', include('rest_framework.urls'),
+          name='api-auth'),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

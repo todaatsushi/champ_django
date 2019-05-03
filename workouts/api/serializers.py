@@ -5,13 +5,13 @@ from rest_framework import serializers
 from workouts.models import Exercise
 
 
-class ExerciseSerializer(serializers.ModelSerializer):
+class ExerciseSerializer(serializers.HyperlinkedModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
 
     class Meta:
         model = Exercise
         fields = (
-            'id', 'created', 'owner', 'exercise', 'gym_level',
+            'url', 'id', 'created', 'owner', 'exercise', 'gym_level',
             'equipment', 'exercise_type', 'movement_type',
             'compound_isolation', 'muscle_group', 'major_muscles',
             'minor_muscles', 'beginner', 'intermediate', 'advanced',
@@ -19,13 +19,14 @@ class ExerciseSerializer(serializers.ModelSerializer):
         )
 
 
-class UserSerializer(serializers.ModelSerializer):
-    exercises = serializers.PrimaryKeyRelatedField(
-                    many=True, queryset=Exercise.objects.all()
+class UserSerializer(serializers.HyperlinkedModelSerializer):
+    exercises = serializers.HyperlinkedRelatedField(
+                    many=True, view_name='exercise-detail',
+                    read_only=True
                 )
 
     class Meta:
         model = User
         fields = (
-            'id', 'username', 'exercises'
+            'url', 'id', 'username', 'exercises'
         )
