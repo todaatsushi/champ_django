@@ -1,9 +1,11 @@
-from djanog.http import Http404
+from django.http import Http404
+from django.contrib.auth.models import User
 
-from rest_framework import generics
+from rest_framework import generics, permissions
 
 from workouts.models import Exercise
-from workouts.api.serializers import ExerciseSerializer
+from workouts.api.serializers import ExerciseSerializer, UserSerializer
+from workouts.api.permissions import IsOwnerOrReadOnly
 
 
 class ExerciseList(generics.ListCreateAPIView):
@@ -12,6 +14,11 @@ class ExerciseList(generics.ListCreateAPIView):
     """
     queryset = Exercise.objects.all()
     serializer_class = ExerciseSerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,
+                          IsOwnerOrReadOnly,)
+
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
 
 
 class ExerciseDetail(generics.RetrieveUpdateDestroyAPIView):
@@ -20,3 +27,21 @@ class ExerciseDetail(generics.RetrieveUpdateDestroyAPIView):
     """
     queryset = Exercise.objects.all()
     serializer_class = ExerciseSerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,
+                          IsOwnerOrReadOnly,)
+
+
+class UserList(generics.ListAPIView):
+    """
+    List all User entries.
+    """
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+
+class UserDetail(generics.RetrieveAPIView):
+    """
+    Show details on one specific user.
+    """
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
