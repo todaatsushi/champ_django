@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 
 class Exercise(models.Model):
@@ -30,5 +31,5 @@ class Exercise(models.Model):
     class Meta:
         ordering = ('created',)
 
-    def __str__(self):
+    def __repr__(self):
         return self.exercise

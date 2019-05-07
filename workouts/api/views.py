@@ -8,7 +8,6 @@ from rest_framework.reverse import reverse
 
 from workouts.models import Exercise
 from workouts.api.serializers import ExerciseSerializer, UserSerializer
-from workouts.api.permissions import IsOwnerOrReadOnly
 
 
 @api_view(['GET'])
@@ -28,8 +27,7 @@ class ExerciseViewSet(viewsets.ModelViewSet):
     queryset = Exercise.objects.all()
     serializer_class = ExerciseSerializer
     permission_classes = (
-        permissions.IsAuthenticatedOrReadOnly,
-        IsOwnerOrReadOnly
+        permissions.IsAdminUser
     )
 
     def perform_create(self, serializer):
