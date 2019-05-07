@@ -17,5 +17,6 @@ router.register(r'users', v.UserViewSet)
 
 urlpatterns = [
      path('', include(router.urls)),
-     path('schema/', schema_view),
+     path('schema/', schema_view, name='champ-api-schema'),
+     path('auth/', include('rest_framework.urls')),
 ]
