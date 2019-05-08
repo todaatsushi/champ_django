@@ -1,0 +1,28 @@
+{% extends "home/layout.html" %}
+
+{% load static %}
+
+{% block title %}
+  About
+{% endblock %}
+
+{% block style %}
+  <link rel="stylesheet" type="text/css" href="{% static 'home/css/about.css' %}" />
+{% endblock %}
+
+{% block main %}
+  <div id="aboutJumbo" class="jumbotron">
+
+    <div class="container">
+
+        <h1 class="text-center">About Champ</h1>
+        <h2 class="text-center">Usage & Specification</h2>
+
+    </div>
+
+  </div>
+
+  <div id="aboutText" class="container">
+
+  </div>
+{% endblock %}

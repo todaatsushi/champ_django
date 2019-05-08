@@ -49,6 +49,13 @@
 
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
+          <a href="{% url 'champ-about' %}">
+            <button class="btn btn-outline-info">
+              About <i class="far fa-question-circle"></i>
+            </button>
+          </a>
+        </li>
+        <li class="nav-item">
           <a href="{% url 'champ-contact' %}"><button class="btn btn-outline-primary" type="button" name="button">Feedback <i class="far fa-comment-alt"></i></button></a>
         </li>
         <li class="nav-item">
@@ -73,15 +80,19 @@
 
     <div class="ml-auto footerLinks">
 
-      <a href="https://github.com/broadsinatlanta">
+      <a href="https://github.com/broadsinatlanta" target="_blank">
         <i class="fab fa-github-square"></i>
       </a>
 
-      <a href="{% url 'champ-contact' %}">
+      <a href="{% url 'champ-contact' %}" target="_blank">
         <i class="fas fa-envelope"></i>
       </a>
 
-      <a href="{% url 'champ-api-schema' %}">
+      <a href="{% url 'champ-about' %}" target="_blank">
+          <i class="far fa-question-circle"></i>
+        </a>
+
+      <a href="{% url 'champ-api-schema' %}" target="_blank">
         <i class="fas fa-database"></i>
       </a>
     </div>
