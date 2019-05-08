@@ -23,6 +23,80 @@
   </div>
 
   <div id="aboutText" class="container">
+      <div class="row">
+          <div class="col-md aboutTopic">
+            <h3 class="text-center">Usage</h3>
+            
+            <p>
+                Champ is a web app used to auto generate complete, bespoke workouts for the user from a rich database of exercises.
+            </p>
 
+            <h5 class="text-center">3 Steps:</h5>
+            <ol>
+                <li class="mb-3">
+                    <h6>Choose your goal:</h6>
+                    <ul>
+                        <li class="mb-3"><strong>Strength</strong> - Low reps, high weight. Choose a weight you struggle to finish 5 reps with. 3 - 5 mins rest between sets.</li>
+                        <li class="mb-3"><strong>Muscle Growth</strong> - Medium reps, medium weight. Choose a weight you struggle to do 12 reps with. 90 - 120 seconds rest between sets.</li>
+                        <li class="mb-3"><strong>Stamina</strong> - High reps, lower weight. Choose a weight you struggle to do 15 reps with. 60 seconds rest between sets.</li>
+                    </ul>
+                </li>
+                <li class="mb-3">
+                    <h6>Choose the target muscle group.</h6>
+                </li>
+                <li class="mb-3">
+                    <h6>Select how much equipment you have available.</h6>
+                    <ul>
+                        <li class="mb-3">
+                            <strong>Fully Equipped</strong> - Includes exercises using specialised equipment e.g. rope climbs, TRX etc.
+                        </li>
+                        <li class="mb-3">
+                            <strong>Basic Equipment</strong> - Only includes exercises using basic equipment e.g. Barbells, dumbbells
+                        </li>
+                        <li class="mb-3">
+                            <strong>No Equipment</strong> - Only includes exercises that use no equipment i.e. calisthenic exercises.
+                        </li>
+                    </ul>
+                </li>
+            </ol>
+
+            <p></p>
+          </div>
+
+          <div class="col-md aboutTopic">
+            <div class="mb-4">
+                <h3 class="text-center">Sitemap</h3>
+                <div class="siteButtons">
+                    <a href="{% url 'champ-home' %}" class="btn btn-success">Home</a>
+                    <a href="{% url 'champ-contact' %}" class="btn btn-warning">Contact</a>
+                    <a href="{% url 'champ-config' %}" class="btn btn-info">Generate Workout</a>
+                    <a href="{% url 'champ-api-schema' %}" class="btn btn-danger">Champ API</a>
+                </div>
+            </div>
+            <div>
+                <h3 class="text-center">Specs</h3>
+                <h5>Frontend</h5>
+                <ul>
+                    <li>HTML & CSS (<a href="https://getbootstrap.com/docs/4.3/getting-started/introduction/">Bootstrap 4</a>)</li>
+                    <li>Javascript (ES6 & <a href="https://jquery.com/">JQuery</a>)</li>
+                </ul>
+                <h5>Backend</h5>
+                <ul>
+                    <li>Python (<a href="https://www.djangoproject.com/start/overview/">Django v2.2</a>)</li>
+                    <li>PostgreSQL</li>
+                </ul>
+                <h5>Hosting</h5>
+                <ul>
+                    <li><a href="https://www.openshift.com/">Red Hat OpenShift</a></li>
+                </ul>
+                <h5>API</h5>
+                <ul>
+                    <li><a href="https://www.django-rest-framework.org/">Django Rest Framework</a></li>
+                </ul>
+            </div>
+          </div>
+      </div>
+
+    <a href="{% url 'champ-home' %}" role="button" class="btn btn-block btn-outline-success">Return Home</a>
   </div>
 {% endblock %}

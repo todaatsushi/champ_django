@@ -134,6 +134,7 @@ DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_ADDRESS')
 
 # Api pagination
 REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': ('workouts.api.permissions.IsAdminOrReadOnly', ),
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 5
+    'PAGE_SIZE': 5,
 }

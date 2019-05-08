@@ -1,13 +1,15 @@
 from django.http import Http404
 from django.contrib.auth.models import User
 
-from rest_framework import generics, permissions, viewsets
+from rest_framework import generics, viewsets
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 from workouts.models import Exercise
 from workouts.api.serializers import ExerciseSerializer, UserSerializer
+from workouts.api.permissions import IsAdminOrReadOnly
 
 
 @api_view(['GET'])
@@ -27,7 +29,7 @@ class ExerciseViewSet(viewsets.ModelViewSet):
     queryset = Exercise.objects.all()
     serializer_class = ExerciseSerializer
     permission_classes = (
-        permissions.IsAdminUser
+        IsAuthenticatedOrReadOnly,
     )
 
     def perform_create(self, serializer):
@@ -40,3 +42,6 @@ class UserViewSet(viewsets.ReadOnlyModelViewSet):
     """
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    permission_classes = (
+        IsAuthenticatedOrReadOnly,
+    )
