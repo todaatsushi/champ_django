@@ -13,6 +13,10 @@
       margin: 10px;
   }
 
+  .aboutTopic ul, .aboutTopic p {
+    font-family: Lato;
+  }
+
 
 .siteButtons {
     display: flex;
