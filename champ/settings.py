@@ -6,7 +6,7 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 
 SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = (os.getenv('DEBUG') == 'True')
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['localhost', 'atsushitoda.pythonanywhere.com']
 
 
 # Application definition
