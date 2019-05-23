@@ -9,5 +9,5 @@ class ContactForm(forms.Form):
 
     name = forms.CharField(required=True)
     email = forms.EmailField(required=True)
-    content = forms.CharField(required=True, widget=forms.Textarea)
+    message = forms.CharField(required=True, widget=forms.Textarea)
     sentiment = forms.ChoiceField(required=True, choices=SENTIMENT_OPTIONS)
