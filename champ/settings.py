@@ -5,7 +5,8 @@ PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
 
 SECRET_KEY = os.getenv('SECRET_KEY')
-DEBUG = (os.getenv('DEBUG') == 'True')
+# DEBUG = (os.getenv('DEBUG') == 'True')
+DEBUG = False
 ALLOWED_HOSTS = ['localhost', 'atsushitoda.pythonanywhere.com']
 
 
@@ -137,4 +138,27 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': ('workouts.api.permissions.IsAdminOrReadOnly', ),
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 5,
+}
+
+
+# Logging
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+       'file': {
+           'level': 'DEBUG',
+           'class': 'logging.FileHandler',
+           'filename': 'log.django',
+       },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console','file'],
+            'level': os.getenv('DJANGO_LOG_LEVEL', 'DEBUG'),
+        },
+    },
 }
