@@ -5,12 +5,13 @@ PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
 
 SECRET_KEY = os.getenv('SECRET_KEY')
+
+# Set debug to 'True'/'False' in .env in order to change.
 DEBUG = (os.getenv('DEBUG') == 'True')
 ALLOWED_HOSTS = ['localhost', 'atsushitoda.pythonanywhere.com']
 
 
 # Application definition
-
 INSTALLED_APPS = [
     'workouts',
     'home',
