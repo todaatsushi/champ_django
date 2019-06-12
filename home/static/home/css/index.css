@@ -1,13 +1,11 @@
 /* Index.html CSS */
 
 /* Modal CSS */
-
 #expModal {
   text-align: center;
 }
 
 /* Welcome Box CSS */
-
 #welcome {
   align-items: center;
   background-color: rgba(250, 250, 250, 0.4);
@@ -27,10 +25,12 @@
   justify-content: center;
 }
 
+/* Title panel */
 #welcomeHead {
   text-align: center;
 }
 
+/* Right panel */
 #welcomeBody {
   font-family: Lato;
 }
