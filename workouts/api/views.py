@@ -5,7 +5,6 @@ from rest_framework import generics, viewsets
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 from workouts.models import Exercise
 from workouts.api.serializers import ExerciseSerializer, UserSerializer
@@ -14,6 +13,9 @@ from workouts.api.permissions import IsAdminOrReadOnly
 
 @api_view(['GET'])
 def champ_api_root(request, format=None):
+    """
+    The 'welcome' page - shows a basic layout of how the API works.
+    """
     return Response({
         'users': reverse('champ-api-user_list', request=request,
                          format=format),
@@ -29,7 +31,7 @@ class ExerciseViewSet(viewsets.ModelViewSet):
     queryset = Exercise.objects.all()
     serializer_class = ExerciseSerializer
     permission_classes = (
-        IsAuthenticatedOrReadOnly,
+        IsAdminOrReadOnly,
     )
 
     def perform_create(self, serializer):
@@ -43,5 +45,5 @@ class UserViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
     permission_classes = (
-        IsAuthenticatedOrReadOnly,
+        IsAdminOrReadOnly,
     )

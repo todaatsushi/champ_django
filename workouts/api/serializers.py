@@ -1,3 +1,7 @@
+"""
+Each user can 'own' exercises in the app - groundwork for crowdsourced DB.
+"""
+
 from django.contrib.auth.models import User
 
 from rest_framework import serializers
@@ -20,6 +24,7 @@ class ExerciseSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
+    # Shows which exercises every user has contributed
     exercises = serializers.HyperlinkedRelatedField(
                     many=True, view_name='exercise-detail',
                     read_only=True
