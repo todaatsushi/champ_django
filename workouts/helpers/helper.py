@@ -1,4 +1,5 @@
 import pandas as pd
+from django_pandas.io import read_frame
 
 from workouts.models import Exercise
 
@@ -7,7 +8,6 @@ def check(list1, list2):
     """
     Checks if any value in list1 exists in list2
     """
-    # print("Check", list1, list2)
     for i in list1:
         for n in list2:
             if i == n:
@@ -21,8 +21,6 @@ def isinList(data, col, filterAll):
     where any variable in filterAll appears in col (of data) is True for
     that index, else is False.
     """
-
-    # Initialise return list of bools
     boolList = []
 
     # Iterate through all lists in col,
@@ -47,8 +45,6 @@ def exerciseData():
     """
     Get exercise data and format it for python, returning it for use
     """
-
-    from django_pandas.io import read_frame
 
     exercises = Exercise.objects.all()
     data = read_frame(exercises)
@@ -77,7 +73,6 @@ def filterExercises(data, cols, filterList):
         data = data[isinList(data, cols[n], filterList[n]
                              )].reset_index(drop=True)
 
-    # Return dataframe
     return data
 
 

@@ -8,8 +8,6 @@ def makeCalisthenicsRoutine(data, target, reps):
     Returns routine format dict of calisthenics weight exercises, according to
     specsand also appropriate rep lengths.
     """
-
-    # Initialise return dict
     routine = {}
 
     # Get 5 calisthenics workouts
@@ -32,12 +30,10 @@ def makeCalisthenicsRoutine(data, target, reps):
 
         # Check conditions
         if any(valid):
-
             # Assign plyo
             routine[e] = "15 seconds"
 
         else:
-
             # Assign calisthenics
             routine[e] = reps[0]
 
@@ -51,7 +47,6 @@ def makeFullBodyRoutine(data, reps):
     Returns routine format dict of full body / main lift weight exercises,
     according to specsand also appropriate rep lengths.
     """
-    # Initialise routine
     routine = {}
 
     # Pool together all relevant exercises & sample
@@ -88,8 +83,6 @@ def makeWeightRoutine(data, target, reps, parts):
     Returns routine format dict of full body / main lift weight exercises,
     according to specsand also appropriate rep lengths.
     """
-
-    # Initalise routine
     routine = {}
 
     # Get exercises for target group & remove warmup exercises

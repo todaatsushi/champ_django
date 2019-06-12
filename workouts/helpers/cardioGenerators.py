@@ -9,8 +9,6 @@ def makeHiitRoutine(data, reps):
     Returns routine format dict of hiit cardio exercises, according to specs
     and also appropriate rep lengths.
     """
-
-    # Initialise routine
     routine = {}
 
     # Filter data for hiit exercises
@@ -27,7 +25,6 @@ def makeHiitRoutine(data, reps):
     for exercise in hiitSample:
         routine[exercise] = reps[0]
 
-    # Return obj
     return routine
 
 
@@ -38,8 +35,6 @@ def makeRegularRoutine(data, reps, gearLevel):
     Returns routine format dict of regular cardio exercises, according to specs
     and also appropriate rep lengths.
     """
-
-    # Initialise routine
     routine = {}
 
     # Filter data for regular exercises
@@ -60,7 +55,6 @@ def makeRegularRoutine(data, reps, gearLevel):
 
         routine[exercise] = reps[0]
 
-    # Return obj
     return routine
 
 
@@ -71,10 +65,9 @@ def makeMixedRoutine(data, reps):
     Returns routine format dict of both hiit & regular cardio exercises,
     according to specs and also appropriate rep lengths.
     """
-
-    # Initialise tally & routine dicts
     routine = {}
 
+    # How many iterations are needed
     tally = {
         "Plyo": 4,
         "Cardio": 2
@@ -94,7 +87,6 @@ def makeMixedRoutine(data, reps):
 
         # While tally is not 0 (not enough exercises)
         while tally[cardioType] > 0:
-
             # Get exercise
             exercise = pool.pop(randint(0, len(pool) - 1))
 
@@ -104,5 +96,4 @@ def makeMixedRoutine(data, reps):
             # Adjust tally
             tally[cardioType] -= 1
 
-    # Return obj
     return routine

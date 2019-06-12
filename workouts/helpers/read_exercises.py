@@ -1,5 +1,7 @@
 """
 User in manage.py shell to import exercises_fin.csv into the database.
+
+Not needed bar the initial entry.
 """
 
 import csv
