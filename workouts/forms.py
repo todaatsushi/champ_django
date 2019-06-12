@@ -44,6 +44,9 @@ class ConfigForm(forms.Form):
                              widget=forms.RadioSelect)
 
     def __init__(self, *args, **kwargs):
+        """
+        Custom layout for the form as select buttons.
+        """
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.layout = cf.Layout(
