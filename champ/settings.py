@@ -8,7 +8,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 
 # Set debug to 'True'/'False' in .env in order to change.
 DEBUG = (os.getenv('DEBUG') == 'True')
-ALLOWED_HOSTS = ['localhost', 'atsushitoda.pythonanywhere.com']
+ALLOWED_HOSTS = ['localhost', 'atsushitoda.pythonanywhere.com', 'champ.atsushi.dev']
 
 
 # Application definition
