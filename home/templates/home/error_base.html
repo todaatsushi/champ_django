@@ -11,20 +11,20 @@
 {% endblock %}
 
 {% block main %}
-  <div id="aboutJumbo" class="jumbotron mx-1">
+  <section id="aboutJumbo" class="jumbotron mx-1">
 
-    <div class="container">
+    <section class="container">
 
         <h1 class="text-center">Error!</h1>
         <h2 class="text-center">{% block err_no %} {% endblock %}</h2>
 
-    </div>
+    </section>
 
-  </div>
+  </section>
 
-  <div id="aboutText" class="container">
+  <section id="aboutText" class="container">
       {% block message %}
       {% endblock %}
-  </div>
+  </section>
       
 {% endblock %}

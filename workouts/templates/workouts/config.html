@@ -10,11 +10,11 @@
 {% endblock %}
 
 {% block main %}
-  <div class="jumbotron mx-1" id="configJumboB">
+  <section class="jumbotron mx-1" id="configJumboB">
     <h1>Design Your <span style="color: #500000">Workout</span></h1>
-  </div>
+  </section>
 
-  <div class="container optionsConfig mb-5">
+  <section class="container optionsConfig mb-5">
 
     <form action="{% url 'champ-config' %}" method="post" id="config" class="mx-auto">
       
@@ -23,5 +23,5 @@
 
     </form>
 
-  </div>
+  </section>
 {% endblock %}

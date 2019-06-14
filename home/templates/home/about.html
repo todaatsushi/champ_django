@@ -11,20 +11,19 @@
 {% endblock %}
 
 {% block main %}
-  <div id="aboutJumbo" class="jumbotron mx-1">
+  <section id="aboutJumbo" class="jumbotron mx-1">
 
-    <div class="container">
+    <section class="container">
 
         <h1 class="text-center">About Champ</h1>
         <h2 class="text-center">Usage & Specification</h2>
+    </section>
 
-    </div>
+  </section>
 
-  </div>
-
-  <div id="aboutText" class="container">
-      <div class="row">
-          <div class="col-md aboutTopic">
+  <section id="aboutText" class="container">
+      <section class="row">
+          <article class="col-md aboutTopic">
             <h3 class="text-center">Usage</h3>
             
             <p>
@@ -61,19 +60,19 @@
             </ol>
 
             <p></p>
-          </div>
+          </article>
 
-          <div class="col-md aboutTopic">
-            <div class="mb-4">
+          <section class="col-md aboutTopic">
+            <section class="mb-4">
                 <h3 class="text-center">Sitemap</h3>
-                <div class="siteButtons">
+                <section class="siteButtons">
                     <a href="{% url 'champ-home' %}" class="btn btn-success col-sm">Home</a>
                     <a href="{% url 'champ-contact' %}" class="btn btn-warning col-sm">Contact</a>
                     <a href="{% url 'champ-config' %}" class="btn btn-info col-sm">Generate Workout</a>
                     <a href="{% url 'champ-api-schema' %}" class="btn btn-danger col-sm" target="_blank">Champ API</a>
-                </div>
-            </div>
-            <div>
+                </section>
+            </section>
+            <article>
                 <h3 class="text-center">Specs</h3>
                 <h5>Frontend</h5>
                 <ul>
@@ -93,10 +92,10 @@
                 <ul>
                     <li><a href="https://www.django-rest-framework.org/" target="_blank">Django Rest Framework</a></li>
                 </ul>
-            </div>
-          </div>
-      </div>
+            </article>
+          </section>
+      </section>
 
-    <a href="{% url 'champ-home' %}" role="button" class="btn btn-block btn-outline-success">Return Home</a>
-  </div>
+    <a href="{% url 'champ-home' %}" role="button" class="btn btn-block btn-outline-success my-5">Return Home</a>
+  </section>
 {% endblock %}

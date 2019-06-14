@@ -11,19 +11,19 @@
 {% endblock %}
 
 {% block main %}
-  <div class="jumbotron mx-1" id="thanksJumbo">
+  <section class="jumbotron mx-1" id="thanksJumbo">
     <h1 class="text-center">Feedback & Enquiries</h1>
     <h2 class="text-center">Contact Form</h2>
-  </div>
+  </section>
 
-  <div class="container mb-5" id="contactSelect">
+  <section class="container mb-5" id="contactSelect">
 
     <form action="{% url 'champ-contact' %}" method="post" id="contact" class="mx-auto">
       
       {% csrf_token %}
       {{ form|crispy }}
 
-      <div class="buttons">
+      <section class="buttons">
         <button type="submit" class="btn btn-sm btn-success mr-2">
             <i class="far fa-paper-plane mr-2"></i> Send
           </button>
@@ -31,9 +31,9 @@
           <button type="reset" class="btn btn-sm btn-outline-secondary">
             Reset Form
           </button>
-      </div>
+      </section>
 
     </form>
 
-  </div>
+  </section>
 {% endblock %}
