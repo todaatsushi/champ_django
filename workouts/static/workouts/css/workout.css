@@ -21,3 +21,11 @@
 .routine-custom td {
   padding : 5px;
 }
+
+/* RETURN BUTTONS */
+.nextSteps {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+}
