@@ -100,7 +100,7 @@ def assignReps(exercise, allReps):
     """
 
     # Extract data from exercise
-    name = exercise.exercise.iloc[0][0]
+    name = exercise.exercise.iloc[0]
     exType = exercise.exercise_type.iloc[0][0]
     mvmt = exercise.movement_type.iloc[0][0]
     cOrI = exercise.compound_isolation.iloc[0][0]
@@ -125,5 +125,5 @@ def assignReps(exercise, allReps):
             raise ValueError("Couldn't sort exercise")
     else:
         ret = [name, allReps[0]]
-
+    print(ret)
     return ret
