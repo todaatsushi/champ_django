@@ -28,12 +28,21 @@ to use admin functionalities e.g. edit the database via the api.
 Next you'd need to import the exercises themselves which can be found in the repo in workouts.helper.exercises_fin.csv.py.
 The script read_exercises.py in the helpers directory can just be copy and pasted into a shell:
 
-# In practice
+### In practice
 Open a shell
 ```
 python manage.py shell
 ```
 and copy and paste the read_exercises.py contents into the shell.
+
+### .env variables
+Champ expects:
+* SECRET_KEY - Django secret key
+* DEBUG - Debug settings ('True' for debug mode)
+
+### Email details - Gmail
+* EMAIL_ADDRESS
+* EMAIL_PASSWORD
 
 # API
 Champ comes with an API accessed by going to /api.
