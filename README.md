@@ -39,10 +39,17 @@ and copy and paste the read_exercises.py contents into the shell.
 Champ expects:
 * SECRET_KEY - Django secret key
 * DEBUG - Debug settings ('True' for debug mode)
+* LOCAL_HOST - For running on your machine in dev mode
 
 ### Email details - Gmail
 * EMAIL_ADDRESS
 * EMAIL_PASSWORD
+
+### Database details (MySql) - Production
+* DB_NAME - The name of the database
+* DB_USER - Database user
+* DB_PASSWORD - Databse password
+* DB_HOST - Database location
 
 # API
 Champ comes with an API accessed by going to /api.
