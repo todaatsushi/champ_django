@@ -68,7 +68,7 @@ python manage.py collectstatic
 
 * [Django](https://docs.djangoproject.com/en/2.2/) - The web framework used
 * [Bootstrap 4](https://v4-alpha.getbootstrap.com/) - CSS Frontend
-* JQuery(https://jquery.com/) - UI/UX
+* [JQuery](https://jquery.com/) - UI/UX
 
 
 ## Authors
