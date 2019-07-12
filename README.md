@@ -63,8 +63,6 @@ To serve static files make sure [Whitenoise](http://whitenoise.evans.io/en/stabl
 python manage.py collectstatic
 ```
 
-## TODO / Next steps:
-* Migrate the database to MySQL / PostgreSQL
 
 ## Built With
 
