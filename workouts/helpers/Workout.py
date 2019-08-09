@@ -9,7 +9,7 @@ from workouts.helpers.weightGenerators import makeCalisthenicsRoutine, \
 class Workout(object):
     """
     Workout class objects are objects with all necessary inputs from
-    the user to make a full workoutself.
+    the user to make a full workout.
 
     generate(Warmup/Routine) are used to make content as they start empty.
     formatFullRoutine is used to assign reps and sets.
