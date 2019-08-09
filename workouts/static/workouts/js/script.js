@@ -79,14 +79,8 @@ jQuery(function($) {
     // Ensure the button starts disabled
     disable();
 
-    console.log("Gear: ", $("input[name='gear']:checked").val());
-    console.log("Goal: ", $("input[name='goal']:checked").val());
-    console.log("Cardio: ", $("input[name='cardio']:checked").val());
-    console.log("Group: ", $("input[name='group']:checked").val());
-
     // Check gear
     if (!["full", "basic", "gymless"].includes($("input[name='gear']:checked").val())) {
-      console.log("Gear fail");
       // Invalid option so disable
       disable();
       return 1;
@@ -95,7 +89,6 @@ jQuery(function($) {
     // Check goal
     if (!["low", "mix",
         "high", "cardio"].includes($("input[name='goal']:checked").val())) {
-      console.log("Goal fail");
       // Invalid option so disable
       disable();
       return 1;
@@ -108,7 +101,6 @@ jQuery(function($) {
       (["hiit", "regular",
         "both"].includes($("input[name='cardio']:checked").val()))
         ) {
-      console.log("Pass: Cardio");
 
       // Enable as valid cardio choice
       enable();
@@ -120,14 +112,12 @@ jQuery(function($) {
       (["chest", "back", "arms", "shoulders",
         "legs", "full", "core"].includes($("input[name='group']:checked").val()))
     ) {
-      console.log("Pass: Weight");
 
       // Valid weight choice so enable
       enable();
       return 1;
 
     } else {
-      console.log("Cardio / Goal mismatch Or Group / Goal Mismatch");
 
       // Invalid choices so disable
       disable();
