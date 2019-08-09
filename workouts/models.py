@@ -26,7 +26,7 @@ class Exercise(models.Model):
     main_lift = models.CharField(max_length=10)
 
     owner = models.ForeignKey('auth.User', related_name='exercises',
-                              on_delete=models.CASCADE)
+                              on_delete=models.SET_NULL, null=True)
 
     class Meta:
         ordering = ('created',)
